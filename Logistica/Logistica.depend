@@ -1,0 +1,111 @@
+# depslib dependency file v1.0
+1561510988 source:c:\users\alumno\desktop\logistica\logistica\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"entregas.h"
+	"parser.h"
+	"utn.h"
+
+1561501135 c:\users\alumno\desktop\logistica\logistica\linkedlist.h
+
+1561509435 c:\users\alumno\desktop\logistica\logistica\entregas.h
+	"LinkedList.h"
+
+1561504820 c:\users\alumno\desktop\logistica\logistica\parser.h
+
+1561510228 c:\users\alumno\desktop\logistica\logistica\utn.h
+
+1561510638 source:c:\users\alumno\desktop\logistica\logistica\entregas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"entregas.h"
+	"utn.h"
+	"LinkedList.h"
+
+1561506738 source:c:\users\alumno\desktop\logistica\logistica\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1561510742 source:c:\users\alumno\desktop\logistica\logistica\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"controller.h"
+	"entregas.h"
+	"parser.h"
+
+1561509251 source:c:\users\alumno\desktop\logistica\logistica\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"entregas.h"
+
+1561510410 source:c:\users\alumno\desktop\logistica\logistica\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1561506688 c:\users\alumno\desktop\logistica\logistica\controller.h
+
+1561510638 source:d:\logistica\entregas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"entregas.h"
+	"utn.h"
+	"LinkedList.h"
+
+1561509435 d:\logistica\entregas.h
+	"LinkedList.h"
+
+1561501135 d:\logistica\linkedlist.h
+
+1561510228 d:\logistica\utn.h
+
+1561506738 source:d:\logistica\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1561510742 source:d:\logistica\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"controller.h"
+	"entregas.h"
+	"parser.h"
+
+1561506688 d:\logistica\controller.h
+
+1561504820 d:\logistica\parser.h
+
+1561509251 source:d:\logistica\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"entregas.h"
+
+1561510410 source:d:\logistica\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1561511141 source:d:\logistica\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"entregas.h"
+	"parser.h"
+	"utn.h"
+
