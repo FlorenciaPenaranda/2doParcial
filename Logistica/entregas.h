@@ -40,5 +40,10 @@ int entrega_lastId(LinkedList* pArrayListEntrega);
 int entrega_findById(LinkedList* pArrayListEntrega, int *posicionId, int id);
 int entrega_compararPorNombre(void* this1, void* this2);
 
+int entrega_regularTipo (void* this);
+int entrega_plusTipo (void* this);
+int entrega_goldTipo (void* this);
+int entrega_cantidadBultos (LinkedList* pArrayListEntrega, int* bultosTotales);
+int entrega_importeTotal (LinkedList* pArrayListEntrega, float* importeTotalEntregas);
 
 #endif // Entrega_H_INCLUDED

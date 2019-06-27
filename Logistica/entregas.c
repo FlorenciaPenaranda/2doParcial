@@ -32,7 +32,6 @@ Entrega* entrega_newParametros(char* idStr,char* tipoStr,char* cantidadStr, char
 
     if(pEntrega != NULL && idStr != NULL && tipoStr != NULL && cantidadStr != NULL && importeStr != NULL)
     {
-        ///Abajo de esto esta el error
         if(!entrega_setIdStr(pEntrega, idStr) &&
                 !entrega_setTipo(pEntrega, tipoStr) &&
                 !entrega_setCantidadStr(pEntrega, cantidadStr) &&
@@ -336,6 +335,7 @@ int entrega_getImporteStr(Entrega* this,char* resultado)
     return retorno;
 }
 
+
 /** \brief Compara entre dos nombres de la lista de entrega.
  *
  * \param this1 void* primer entrega.
@@ -345,14 +345,8 @@ int entrega_getImporteStr(Entrega* this,char* resultado)
  *                       0 si son iguales.
  *
  */
-
-
-
-
-
-
-
-/*int entrega_compararPorNombre(void* this1, void* this2)
+/*
+int entrega_compararPorNombre(void* this1, void* this2)
 {
     char auxNombreA[4096];
     char auxNombreB[4096];
@@ -370,8 +364,8 @@ int entrega_getImporteStr(Entrega* this,char* resultado)
         return -1;
     }
     return 0;
-}*/
-
+}
+*/
 /** \brief Recorre la lista de entrega, busca el id maximo y lo incrementa en uno al retornarlo
  *
  * \param LinkedList* pArrayEntrega puntero al array de entrega.
@@ -440,3 +434,109 @@ int Entrega_findById(LinkedList* pArrayListEntrega, int *posicionId, int id)
     }
     return ret;
 }
+
+int entrega_regularTipo (void* this)
+{
+    int ret = 0;
+    char auxEntrega[50];
+
+    if(this!= NULL)
+    {
+        entrega_getTipo((Entrega*)this, auxEntrega);
+        if(!strcmp("REGULAR", auxEntrega))
+        {
+            ret=1;
+        }
+
+    }
+    return ret;
+}
+
+int entrega_plusTipo (void* this)
+{
+    int ret = 0;
+    char auxEntrega[50];
+
+    if(this!= NULL)
+    {
+        entrega_getTipo((Entrega*)this, auxEntrega);
+        if(!strcmp("PLUS", auxEntrega))
+        {
+            ret=1;
+        }
+    }
+    return ret;
+}
+
+int entrega_goldTipo (void* this)
+{
+    int ret = 0;
+    char auxEntrega[50];
+
+    if(this!= NULL)
+    {
+        entrega_getTipo((Entrega*)this, auxEntrega);
+        if(!strcmp("GOLD", auxEntrega))
+        {
+            ret=1;
+        }
+
+    }
+    return ret;
+}
+
+int entrega_cantidadBultos (LinkedList* pArrayListEntrega, int* bultosTotales)
+{
+    int ret = -1;
+    int i = 0;
+    Entrega* pAuxEntrega;
+    int auxBultos;
+    int sumadorBultos = 0;
+
+    if(pArrayListEntrega != NULL)
+    {
+        for(i=0; i<=ll_len(pArrayListEntrega); i++)
+        {
+            pAuxEntrega = ll_get(pArrayListEntrega, i);
+            if(pAuxEntrega != NULL)
+            {
+                if(!entrega_getCantidad(pAuxEntrega, &auxBultos))
+                {
+                    sumadorBultos += auxBultos;
+                    ret = 0;
+                }
+            }
+        }
+        *bultosTotales = sumadorBultos;
+    }
+    return ret;
+}
+
+int entrega_importeTotal (LinkedList* pArrayListEntrega, float* importeTotalEntregas)
+{
+    int ret = -1;
+    int i = 0;
+    Entrega* pAuxEntrega;
+    float auxImporte;
+    float sumadorImporte = 0;
+
+    if(pArrayListEntrega != NULL)
+    {
+        for(i=0; i<=ll_len(pArrayListEntrega); i++)
+        {
+            pAuxEntrega = ll_get(pArrayListEntrega, i);
+            if(pAuxEntrega != NULL)
+            {
+                if(!entrega_getImporte(pAuxEntrega, &auxImporte))
+                {
+                    sumadorImporte += auxImporte;
+                    ret = 0;
+                }
+            }
+        }
+        *importeTotalEntregas = sumadorImporte;
+    }
+    return ret;
+}
+
+

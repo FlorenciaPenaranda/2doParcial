@@ -109,3 +109,113 @@
 	"parser.h"
 	"utn.h"
 
+1561576144 source:c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"entregas.h"
+	"parser.h"
+	"utn.h"
+
+1561571855 c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\linkedlist.h
+
+1561550737 c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\entregas.h
+	"LinkedList.h"
+
+1561550737 c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\parser.h
+
+1561550959 c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\utn.h
+
+1561576119 source:c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\entregas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"entregas.h"
+	"utn.h"
+	"LinkedList.h"
+
+1561550737 source:c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1561565903 source:c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"controller.h"
+	"entregas.h"
+	"parser.h"
+
+1561551363 c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\controller.h
+
+1561550737 source:c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"entregas.h"
+
+1561551020 source:c:\users\fpenaranda\desktop\florutn\2doparcial\logistica\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1561594839 source:c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"entregas.h"
+	"parser.h"
+	"utn.h"
+
+1561567700 c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\linkedlist.h
+
+1561594790 c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\entregas.h
+	"LinkedList.h"
+
+1561567702 c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\parser.h
+
+1561567702 c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\utn.h
+
+1561594772 source:c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\entregas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"entregas.h"
+	"utn.h"
+	"LinkedList.h"
+
+1561567700 source:c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1561591279 source:c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"controller.h"
+	"entregas.h"
+	"parser.h"
+
+1561567700 c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\controller.h
+
+1561567702 source:c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"entregas.h"
+
+1561567702 source:c:\users\franor srl\desktop\logistica-20190626t222951z-001\logistica\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+

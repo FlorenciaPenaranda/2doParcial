@@ -8,7 +8,7 @@
 /** \brief Carga los datos de las entregas desde el archivo data (modo texto).
  *
  * \param path char* puntero al archivo a cargar
- * \param pArrayListEntregas LinkedList* puntero al array de empleados.
+ * \param pArrayListEntregas LinkedList* puntero al array de entregas.
  * \return int ret -1 si el puntero path es NULL o el puntero pArrayListEntregas es NULL,
                     0 si logra cargar los datos.
  *
@@ -20,17 +20,15 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEntregas)
 
     if(path != NULL && pArrayListEntregas != NULL)
     {
-        printf("Parametros Validos\n");
-        pFileAux = fopen("data.csv", "r");
+        pFileAux = fopen(path, "r");
         if(pFileAux != NULL)
         {
-            printf("Archivo abierto");
             if(!parser_EntregaFromText(pFileAux, pArrayListEntregas))
             {
+                printf("\tCARGA EXITOSA!\n");
                 ret = 0;
             }
-        }else
-            printf("Archivo no abierto");
+        }
     }
     return ret;
 }
@@ -56,12 +54,12 @@ int controller_ListEntregas(LinkedList* pArrayListEntregas)
         pEntrega = ll_get(pArrayListEntregas, i);//guardar en un puntero a empleado
         if(pEntrega != NULL)
         {
-           if(!entrega_getIdStr(pEntrega, bufferId) &&
-                        !entrega_getTipo(pEntrega,bufferTipo) &&
-                        !entrega_getCantidad(pEntrega, &bufferCantidad) &&
-                        !entrega_getImporte(pEntrega, &bufferImporte))
+            if(!entrega_getIdStr(pEntrega, bufferId) &&
+                    !entrega_getTipo(pEntrega,bufferTipo) &&
+                    !entrega_getCantidad(pEntrega, &bufferCantidad) &&
+                    !entrega_getImporte(pEntrega, &bufferImporte))
             {
-                printf("ID:%s, TIPO: %s, CANTIDAD: %d, IMPORTE: %.2f\n", bufferId, bufferTipo, bufferCantidad, bufferImporte);
+                printf("ID:%s TIPO: %s CANTIDAD: %d IMPORTE: %.2f\n", bufferId, bufferTipo, bufferCantidad, bufferImporte);
                 ret = 0;
             }
         }
@@ -81,33 +79,46 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEntregas)
 {
     int ret = -1;
     FILE* pFileAux = NULL;
-    Entrega * pEntrega = NULL;
-    char bufferId[400];
-    char bufferTipo[400];
-    char bufferCantidad[400];
-    char bufferImporte[400];
+    int cantidadTotaEntregas;
+    LinkedList* entregasRegular = ll_newLinkedList();
+    int cantidadRegulares;
+    LinkedList* entregasPlus = ll_newLinkedList();
+    int cantidadPlus;
+    LinkedList* entregasGold = ll_newLinkedList();
+    int cantidadGold;
+
+    int cantidadBultosEntregados;
+    float importeTotalEntregas;
 
     if(path != NULL && pArrayListEntregas != NULL)
     {
         pFileAux = fopen(path, "w");
         if(pFileAux != NULL)
         {
-            for(int i =0; i<ll_len(pArrayListEntregas); i++)
+            cantidadTotaEntregas = ll_len(pArrayListEntregas);
+
+            entregasRegular = ll_filter(pArrayListEntregas, entrega_regularTipo);
+            cantidadRegulares = ll_len(entregasRegular);
+            entregasPlus = ll_filter(pArrayListEntregas, entrega_plusTipo);
+            cantidadPlus = ll_len(entregasPlus);
+            entregasGold = ll_filter(pArrayListEntregas, entrega_goldTipo);
+            cantidadGold = ll_len(entregasGold);
+
+            //entrega_cantidadBultos(pArrayListEntregas, &cantidadBultosEntregados);
+            entrega_importeTotal(pArrayListEntregas, &importeTotalEntregas);
+
+
+            fprintf(pFileAux,"\t\tINFORME DE ENTREGASº\n\n");
+            //fprintf(pFileAux, "%s, %s, %s, %s\n", bufferId,bufferNombre,bufferHorasTrabajadas,bufferSueldo);
+            fprintf(pFileAux,"- Cantidad total de entregas: %d\n", cantidadTotaEntregas );
+            fprintf(pFileAux,"- Cantidad de entregas por tipo: %d (REGULAR) - %d (PLUS) - %d (GOLD) \n", cantidadRegulares, cantidadPlus, cantidadGold);
+            if(! entrega_cantidadBultos(pArrayListEntregas, &cantidadBultosEntregados))
             {
-                pEntrega = ll_get(pArrayListEntregas, i);
-                if(!entrega_getIdStr(pEntrega, bufferId) &&
-                        !entrega_getTipo(pEntrega,bufferTipo) &&
-                        !entrega_getCantidadStr(pEntrega, bufferCantidad) &&
-                        !entrega_getImporteStr(pEntrega, bufferImporte))
-                {
-                    fprintf(pFileAux, "%s, %s, %s, %s\n", bufferId,bufferTipo,bufferCantidad,bufferImporte);
-                    ret = 0;
-                }
-                else
-                {
-                    entrega_delete(pEntrega);
-                }
+                fprintf(pFileAux,"- Cantidad total de bultos entregados: %d\n", cantidadBultosEntregados);
             }
+            fprintf(pFileAux,"- Promedio de bultos por entrega: %.2f\n", (float)cantidadBultosEntregados/cantidadTotaEntregas);
+            fprintf(pFileAux,"- Importe promedio por entrega: %.2f  \n", (float)importeTotalEntregas/cantidadTotaEntregas);
+
         }
         fclose(pFileAux);
     }

@@ -123,35 +123,9 @@ int validarNumero (char numeros[])
             ret=1;
         }
     }
-   /* int retorno = 1;
-    if(numeros != NULL)
-    {
-        for(int i=0;numeros[i]!='\0';i++)
-        {
-            if((numeros[i]<0 &&numeros[i]>9) && numeros[i]!= '.')
-            {
-                retorno = 0;
-            }
-        }
-    }*/
     return ret;
 }
-int validFloat(char* numeros)
-{
 
-    int retorno = 1;
-    if(numeros != NULL)
-    {
-        for(int i=0;numeros[i]!='\0';i++)
-        {
-            if((numeros[i]<0 && numeros[i]>9) || numeros[i]!= '.')
-            {
-                retorno = 0;
-            }
-        }
-    }
-    return retorno;
-}
 /** \brief Solicita el ingreso de un float y valida su tamaño
 * \param resultado int* Puntero a la variable donde se almacena el int ingresado
 * \param mensaje char* Mensaje a mostrar
@@ -195,6 +169,22 @@ int isValidFloat(float numero, float maximo, float minimo)
     if(numero<=maximo && numero>=minimo)
     {
         ret = 0;
+    }
+    return ret;
+}
+
+int validFloat(char* numeros)
+{
+    int ret = 1;
+    if(numeros != NULL)
+    {
+        for(int i=0;numeros[i]!='\0';i++)
+        {
+            if((numeros[i]<0 && numeros[i]>9) || numeros[i]!= '.')
+            {
+                ret = 0;
+            }
+        }
     }
     return ret;
 }
